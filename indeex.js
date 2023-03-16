@@ -53,6 +53,33 @@ async function postData(evt){
 
 }
 
+//peticion PUT 
+const updateApoyosync = async () =>{
+    const reponse = await fetch(urlBase,{
+    method: "PUT",
+    
+    headers:{
+        "Content-Type": "application/json"
+
+    },
+    body: JSON.stringify({
+        nombre:nombre.value,
+        descripcion:descripcion.value,
+        fecha: new Date(),
+        imagen:url.value,
+        lugar:lugar.value,
+        activo:true,
+        periodicidad: "Mensualmente",
+        monto:monto.value,
+        tipo_Dependencia:tipo_Dependencia.value
+    })
+    })
+
+    const json = await reponse.json();
+    console.log(json); 
+
+
+}
 
 // Peticion DELETE
 const deleteApoyoAsync = async () => {
